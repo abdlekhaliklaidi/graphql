@@ -6,6 +6,13 @@ export function infouser(dataUser) {
 
   if (!dataUser || !dataUser.firstName || !dataUser.lastName) {
     console.warn("User data is missing.");
+    const div = document.createElement("header");
+    div.className = "user header";
+    const name = document.createElement("span");
+    name.className = "username";
+    name.innerText = "There is nothing"; 
+    div.append(name);
+    select.append(div);
     return;
   }
   const div = document.createElement("header");
@@ -29,7 +36,13 @@ export function Skillsuser(skills) {
 
   if (!Array.isArray(skills) || skills.length === 0) {
     console.warn('Skills data is missing or not in the expected format.');
-    return;
+    const divSkills = document.createElement("div");
+    divSkills.className = "card skills";
+    const text = document.createElement("div");
+    text.className = "titleRatio titleSkills";
+    text.innerText = "Skills: There is nothing";  
+    divSkills.append(text);
+    return divSkills;
   }
 
   const divSkills = document.createElement("div");
@@ -101,7 +114,14 @@ export function Info(info) {
 
   if (!info || !info.transactions || !info.totalXp || !Array.isArray(info.skills)) {
     console.warn("Info data is missing or incomplete.");
-    return ;
+    const divskill = document.createElement("div");
+    divskill.className = "rows";
+    const divlevel = document.createElement("div");
+    divlevel.className = "info";
+    divlevel.innerText = "There is nothing";  
+    divskill.append(divlevel);
+    select.append(divskill);
+    return;
   }
 
   const divskill = document.createElement("div");
@@ -137,8 +157,15 @@ function Liveruser(level) {
 
 export function creatPath(trans) {
 
-  if(!trans) {
-    console.warn("trans data is missing.")
+  if (!trans || trans.length === 0) {
+    console.warn("Transaction data is missing.");
+    const div = document.createElement("div");
+    div.className = "card path";
+    const message = document.createElement("div");
+    message.className = "message";
+    message.innerText = "There is nothing";  
+    div.append(message);
+    return div;
   }
   let cumulativeXP = 0;
   const width = 680;
