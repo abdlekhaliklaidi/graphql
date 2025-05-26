@@ -67,7 +67,9 @@ export function Skillsuser(skills) {
   let centerX = 80, centerY = 100, radius = 135
 
   skills.forEach(skill => {
-    const skillAngle = (skill.amount / total) * 400;
+    // const skillAngle = (skill.amount / total) * 400;
+    const skillAngle = (skill.amount / total) * 385;
+
 
     const x1 = 100 + 100 * Math.cos((currentAngle * Math.PI) / 80);
     const y1 = 100 + 100 * Math.sin((currentAngle * Math.PI) / 80);
@@ -205,7 +207,7 @@ export function creatPath(trans) {
 
   svg.setAttribute("width", "90%");
   svg.setAttribute("height", "90%");
-  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.setAttribute("viewBox", `-17 -90 ${width + 50} ${height + 100}`);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   svg.append(path);
   dataPoints.forEach((point) => {
